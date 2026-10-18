@@ -1,10 +1,12 @@
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
 public class ScratchPad implements Runnable {
     JFrame window;
     JTextArea pad;
+    JScrollPane scrollable;
 
     public void run() {
         window = new JFrame("ScratchPad");
@@ -14,7 +16,8 @@ public class ScratchPad implements Runnable {
         pad = new JTextArea();
         pad.setLineWrap(true);
         pad.setSize(500, 500);
-        window.add(pad);
+        scrollable = new JScrollPane(pad, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        window.add(scrollable);
         window.setVisible(true);
     }
 
